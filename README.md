@@ -10,6 +10,8 @@
 
 # Clerk Hasura Starter
 
+Tutorial: [https://clerk.dev/tutorials/build-a-cookie-clicker-app-with-clerk-and-hasura](https://clerk.dev/tutorials/build-a-cookie-clicker-app-with-clerk-and-hasura)
+
 This repo shows an example use case for how you can authenticate your Hasura GraphQL service requests using [Clerk](https://www.clerk.dev/?utm_source=github&utm_medium=starter_repos&utm_campaign=hasura_starter) as an authentication provider.
 
 [![chat on Discord](https://img.shields.io/discord/856971667393609759.svg?logo=discord)](https://discord.com/invite/b5rXHjAg7A)
