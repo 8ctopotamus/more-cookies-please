@@ -18,7 +18,8 @@ import useSWR from "swr";
   const endpoint = process.env.NEXT_PUBLIC_HASURA_GRAPHQL_API;
   const fetcher = async () => {
       return request(endpoint, query, variables, {
-          authorization: `Bearer ${await getToken({template: "your-template-name"})}`
+          'x-hasura-admin-secret': process.env.NEXT_PUBLIC_HASURA_GRAPHQL_ADMIN_SECRET,
+          authorization: `Bearer ${await getToken({template: "hasura"})}`
       });
   };
 
