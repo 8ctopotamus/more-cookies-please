@@ -1,6 +1,7 @@
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
+import MoreCookies from "../components/MoreCookies";
 
 const ClerkFeatures = () => (
   <Link href="/user">
@@ -46,78 +47,19 @@ const SignupLink = () => (
 // https://docs.clerk.dev/frontend/react/signedin-and-signedout
 const Main = () => (
   <main className={styles.main}>
-    <h1 className={styles.title}>Welcome to your new app</h1>
-    <SignedIn>
-      <p className={styles.description}>You have successfully signed in</p>
-    </SignedIn>
     <SignedOut>
+      <h1 className={styles.title}>Welcome to your new app</h1>
       <p className={styles.description}>Sign up for an account to get started</p>
-    </SignedOut>
-
-    <div className={styles.cards}>
-      <div className={styles.card}>
-        <SignedIn>
-          <ClerkFeatures />
-        </SignedIn>
-        <SignedOut>
+      <div className={styles.cards}>
+        <div className={styles.card}>
           <SignupLink />
-        </SignedOut>
+        </div>
       </div>
-
-      <div className={styles.card}>
-        <Link href="https://dashboard.clerk.dev">
-          <a target="_blank" rel="noreferrer" className={styles.cardContent}>
-            <img src="/icons/settings.svg" />
-            <div>
-              <h3>Configure settings for your app</h3>
-              <p>
-                Visit Clerk to manage instances and configure settings for user
-                management, theme, and more
-              </p>
-            </div>
-            <div className={styles.arrow}>
-              <img src="/icons/arrow-right.svg" />
-            </div>
-          </a>
-        </Link>
-      </div>
-    </div>
-
-    <div className={styles.links}>
-      <Link href="https://docs.clerk.dev">
-        <a target="_blank" rel="noreferrer" className={styles.link}>
-          <span className={styles.linkText}>Read Clerk documentation</span>
-        </a>
-      </Link>
-      <Link href="https://nextjs.org/docs">
-        <a target="_blank" rel="noreferrer" className={styles.link}>
-          <span className={styles.linkText}>Read Next.js documentation</span>
-        </a>
-      </Link>
-    </div>
+    </SignedOut>
+    <SignedIn>
+      <MoreCookies />
+    </SignedIn>
   </main>
 );
 
-const Footer = () => (
-  <footer className={styles.footer}>
-    <a
-      href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Powered by{" "}
-      <img src="/clerk.svg" alt="Clerk.dev" className={styles.logo} />
-      +
-      <img src="/nextjs.svg" alt="Next.js" className={styles.logo} />
-    </a>
-  </footer>
-);
-
-const Home = () => (
-  <div className={styles.container}>
-    <Main />
-    <Footer />
-  </div>
-);
-
-export default Home;
+export default Main;
